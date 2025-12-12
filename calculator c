@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    char op;
+    double num1, num2;
+    int running = 1;
+
+    while (running) {
+        printf("\n---- Simple Calculator ----\n");
+        printf("Choose an operator (+, -, *, /) or x to exit: ");
+        scanf(" %c", &op);
+
+        if (op == 'x' || op == 'X') {
+            printf("Exiting calculator...\n");
+            running = 0;
+            continue;
+        }
+
+        printf("Enter first number: ");
+        scanf("%lf", &num1);
+
+        printf("Enter second number: ");
+        scanf("%lf", &num2);
+
+        switch (op) {
+            case '+':
+                printf("Result = %.2lf\n", num1 + num2);
+                break;
+
+            case '-':
+                printf("Result = %.2lf\n", num1 - num2);
+                break;
+
+            case '*':
+                printf("Result = %.2lf\n", num1 * num2);
+                break;
+
+            case '/':
+                if (num2 == 0)
+                    printf("Error! Division by zero.\n");
+                else
+                    printf("Result = %.2lf\n", num1 / num2);
+                break;
+
+            default:
+                printf("Invalid operator! Try again.\n");
+        }
+    }
+
+    return 0;
+}
